@@ -67,47 +67,131 @@ repository snapshots. These snapshots are persistent and immutable. They are
 meant to be used by test farms, CI systems, and other development tools, in
 case the official RPM repositories are not suitable.</p>
 
-<p><strong>WARNING</strong>: These snapshots are not meant for production use! No guarantee of
-safety, applicability, or fitness is made. No security fixes are applied to the
-repositories.</p>
+<hr />
 
-<h3 id="repositories">Repositories</h3>
+<p><strong>WARNING</strong>: <em>These snapshots are not meant for production use! No guarantee of
+safety, applicability, or fitness for a particular purpose is made. No security
+fixes are applied to the repositories!</em></p>
+
+<hr />
+
+<h2 id="repositories">Repositories</h2>
+
+<p>An enumeration of all available snapshots can be retrieved via:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://rpmrepo.osbuild.org/control/snapshots | jq .
+</code></pre></div></div>
 
 <p>The following table lists the repositories that are snapshotted, as well as the
 availability guarantees, and the different variants.</p>
+
+<hr />
 
 <table>
   <thead>
     <tr>
       <th>Platform</th>
-      <th style="text-align: right">Version</th>
-      <th>Architectures</th>
-      <th>Repositories</th>
+      <th style="text-align: center">Version</th>
+      <th style="text-align: center">Architectures</th>
       <th>Lifetime</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Fedora</td>
-      <td style="text-align: right">31, 32, 33</td>
-      <td>x86_64</td>
-      <td>fedora, fedora-modular, updates-released, updates-released-modular</td>
+      <td style="text-align: center">31</td>
+      <td style="text-align: center">x86_64</td>
+      <td>6 months</td>
+    </tr>
+    <tr>
+      <td>Fedora</td>
+      <td style="text-align: center">32</td>
+      <td style="text-align: center">x86_64</td>
+      <td>6 months</td>
+    </tr>
+    <tr>
+      <td>Fedora</td>
+      <td style="text-align: center">33</td>
+      <td style="text-align: center">x86_64</td>
       <td>6 months</td>
     </tr>
     <tr>
       <td>RHEL</td>
-      <td style="text-align: right">8.2, 8.3, 8.4</td>
-      <td>aarch64, ppc64le, s390x, x86_64</td>
-      <td>BaseOS, AppStream</td>
+      <td style="text-align: center">8.2</td>
+      <td style="text-align: center">aarch64, ppc64le, s390x, x86_64</td>
+      <td>6 months</td>
+    </tr>
+    <tr>
+      <td>RHEL</td>
+      <td style="text-align: center">8.3</td>
+      <td style="text-align: center">aarch64, ppc64le, s390x, x86_64</td>
+      <td>6 months</td>
+    </tr>
+    <tr>
+      <td>RHEL</td>
+      <td style="text-align: center">8.4</td>
+      <td style="text-align: center">aarch64, ppc64le, s390x, x86_64</td>
       <td>6 months</td>
     </tr>
   </tbody>
 </table>
 
-<p>An enumeration of all available snapshots can be retrieved via:</p>
+<hr />
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://rpmrepo.osbuild.org/control/snapshots | jq .
+<h2 id="usage">Usage</h2>
+
+<p>We provide an RPM repository for every snapshot, accessible via
+<code class="language-plaintext highlighter-rouge">rpmrepo.osbuild.org</code>. The <em>Base URL</em> for a given snapshot is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://rpmrepo.osbuild.org/v1/&lt;storage&gt;/&lt;platform&gt;/&lt;snapshot&gt;/
 </code></pre></div></div>
+
+<p>The parameters are:</p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>*<storage>*</storage></td>
+      <td><em>anon</em>, <em>auth</em>, <em>psi</em></td>
+      <td><em>anon</em></td>
+    </tr>
+    <tr>
+      <td>*<platform>*</platform></td>
+      <td>*f<num>*, *el<num>*</num></num></td>
+      <td><em>f33</em>, <em>el8</em></td>
+    </tr>
+    <tr>
+      <td>*<snapshot>*</snapshot></td>
+      <td>*<tag>*</tag></td>
+      <td><em>f33-x86_64-devel-20201010</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>The <em>storage</em> key selects the actual data store. Available storage includes
+<em>anon</em> for the anonymous storage, <em>auth</em> for data that requires authentication,
+<em>psi</em> for data on Red Hat private infrastructure. The <em>platform</em> key groups the
+data by platform, required for data lifetime management. The <em>snapshot</em> key
+selects the individual snapshot.</p>
+
+<p>Note that not all data is available on all storage locations and platforms. If
+you select the wrong combination, you will get <em>404</em> replies. As a general
+rule, you should select the platform based on the snapshot name (e.g., for the
+snapshot <em>f33-x86_64-devel-20201010</em> you should use <em>f33</em> as platform). As
+storage selector, you should use <em>anon</em> for all publicly available data, <em>psi</em>
+for Red Hat internal data, and <em>auth</em> if you have gotten authentication
+credentials.</p>
 
 </article>
 
