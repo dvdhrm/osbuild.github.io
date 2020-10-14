@@ -1,0 +1,48 @@
+<h1 id="rpm-repository-snapshots">RPM Repository Snapshots</h1>
+
+<p>For reliable continuous development, the OSBuild project employs its own RPM
+repository snapshots. These snapshots are persistent and immutable. They are
+meant to be used by test farms, CI systems, and other development tools, in
+case the official RPM repositories are not suitable.</p>
+
+<p><strong>WARNING</strong>: These snapshots are not meant for production use! No guarantee of
+safety, applicability, or fitness is made. No security fixes are applied to the
+repositories.</p>
+
+<h3 id="repositories">Repositories</h3>
+
+<p>The following table lists the repositories that are snapshotted, as well as the
+availability guarantees, and the different variants.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th style="text-align: right">Version</th>
+      <th>Architectures</th>
+      <th>Repositories</th>
+      <th>Lifetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fedora</td>
+      <td style="text-align: right">31, 32, 33</td>
+      <td>x86_64</td>
+      <td>fedora, fedora-modular, updates-released, updates-released-modular</td>
+      <td>6 months</td>
+    </tr>
+    <tr>
+      <td>RHEL</td>
+      <td style="text-align: right">8.2, 8.3, 8.4</td>
+      <td>aarch64, ppc64le, s390x, x86_64</td>
+      <td>BaseOS, AppStream</td>
+      <td>6 months</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An enumeration of all available snapshots can be retrieved via:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://rpmrepo.osbuild.org/control/snapshots | jq .
+</code></pre></div></div>
