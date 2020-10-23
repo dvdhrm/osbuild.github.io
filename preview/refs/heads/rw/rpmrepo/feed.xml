@@ -3,7 +3,7 @@
   <title type="html">OSBuild</title>
   <subtitle>Build-Pipelines for Operating System Artifacts</subtitle>
   <id>https://www.osbuild.org/osbuild.github.io/preview/refs/heads/rw/rpmrepo/</id>
-  <updated>2020-10-23T07:37:47-05:00</updated>
+  <updated>2020-10-23T07:42:04-05:00</updated>
   <author><name>OSBuild Developers</name></author>
   <generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator>
   <link href="https://www.osbuild.org/osbuild.github.io/preview/refs/heads/rw/rpmrepo/feed.xml" rel="self" type="application/atom+xml" />
@@ -167,7 +167,7 @@ URL:&lt;/p&gt;
 &lt;p&gt;with your information:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://rpmrepo.osbuild.org/v1/anon/f32/f32-x86_64-updates-released-20201010/&quot;&gt;https://rpmrepo.osbuild.org/v1/anon/f32/f32-x86_64-updates-released-20201010/&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://rpmrepo.osbuild.org/v1/anon/f32/f32-x86_64-updates-released-20201010/&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;and this will be your Base URL ready to be used with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnf&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum&lt;/code&gt;:&lt;/p&gt;
@@ -187,7 +187,11 @@ URL:&lt;/p&gt;
   &amp;lt;/data&amp;gt;
   [...]
 &amp;lt;/repomd&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is it. This snapshot is immutable and will not change during its lifetime.
+Do not hesitate to contact the Image Builder team if you have questions or
+further requests.&lt;/p&gt;</content>
 </entry>
 
 <entry>
