@@ -116,19 +116,13 @@ exit immediately</p>
 file system trees are stored</p>
 
 
-<p style="margin-left:11%;"><b>--sources=</b><i>PATH</i></p>
-
-<p style="margin-left:22%;">json file containing a
-dictionary of source configuration</p>
-
-
 <p style="margin-left:11%;"><b>--secrets=</b><i>PATH</i></p>
 
 <p style="margin-left:22%;">json file containing a
 dictionary of secrets that are passed to sources</p>
 
 
-<p style="margin-left:11%;"><b>-l&nbsp;</b><i>DIR</i><b>,&nbsp;--libdir=</b><i>DIR</i></p>
+<p style="margin-left:11%;"><b>-l&nbsp;</b><i>DIR</i>,&nbsp;<b>--libdir=</b><i>DIR</i></p>
 
 <p style="margin-left:22%;">directory containing stages,
 assemblers, and the osbuild library</p>
@@ -167,6 +161,16 @@ store during build (can be passed multiple times)</p>
 
 <p style="margin-left:22%;">directory where result objects
 are stored</p>
+
+<p style="margin-left:11%;"><b>--inspect</b></p>
+
+<p style="margin-left:22%;">return the manifest in JSON
+format including all the ids</p>
+
+<p style="margin-left:11%; margin-top: 1em">NB: If neither
+<b>--output-directory</b> nor <b>--checkpoint</b> is
+specified, no attempt to build the manifest will be
+made.</p>
 
 <h2 id="heading5">MANIFEST
 </h2>
